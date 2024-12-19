@@ -9,9 +9,9 @@ resources:
     component: fc3
     actions:
       pre-deploy:
-        - run: export PATH=/usr/local/versions/node/v20.18.1/bin:$PATH && npm install --production
+        - run: npm install --production
           path: ./   
-        - run: export PATH=/usr/local/versions/node/v20.18.1/bin:$PATH && npm run build
+        - run: npm run build
           path: ./
     props:
       region: ${vars.region}
@@ -22,10 +22,9 @@ resources:
       codeUri: ./
       diskSize: 512
       layers:
-        - acs:fc:${vars.region}:official:layers/Nodejs20/versions/1
+        - acs:fc:${vars.region}:official:layers/Nodejs18/versions/1
       environmentVariables:
-        PATH: >-
-          /opt/nodejs20/bin:/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin
+        PATH: /opt/nodejs18/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
       customRuntimeConfig:
         command:
             - npm
