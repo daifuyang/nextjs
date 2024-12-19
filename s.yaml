@@ -9,9 +9,9 @@ resources:
     component: fc3
     actions:
       pre-deploy:
-        - run: export PATH=/usr/local/versions/node/v20.8.1/bin:$PATH && npm install --production
+        - run: export PATH=/usr/local/versions/node/v20.18.1/bin:$PATH && npm install --production
           path: ./   
-        - run: export PATH=/usr/local/versions/node/v20.8.1/bin:$PATH && npm run build
+        - run: export PATH=/usr/local/versions/node/v20.18.1/bin:$PATH && npm run build
           path: ./
     props:
       region: ${vars.region}
